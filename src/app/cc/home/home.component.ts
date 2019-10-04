@@ -16,6 +16,8 @@ export class HomeComponent implements OnInit {
   }
 
   public navTo(path: string) {
-    this.routes.navigateByUrl(path);
+    if ((path !== '') || (path === undefined)) {
+      this.routes.navigateByUrl('home/' + path);
+    }
   }
 }
