@@ -9,6 +9,7 @@ import { PageNotFoundComponent } from './cc/page-not-found/page-not-found.compon
 import { SerialreadComponent } from './cc/serialread/serialread.component';
 import { Plotd3jsComponent } from './cc/plot/plotd3js/plotd3js.component';
 import { PlotDiagramComponent } from './cc/plot/plot-diagram/plot-diagram.component';
+import { LineChartComponent } from './cc/plot/plotDiagrams/line-chart/line-chart.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { PlotDiagramComponent } from './cc/plot/plot-diagram/plot-diagram.compon
     PageNotFoundComponent,
     SerialreadComponent,
     Plotd3jsComponent,
-    PlotDiagramComponent
+    PlotDiagramComponent,
+    LineChartComponent
   ],
   imports: [
     BrowserModule,
