@@ -11,6 +11,10 @@ import { Plotd3jsComponent } from './cc/plot/plotd3js/plotd3js.component';
 import { PlotDiagramComponent } from './cc/plot/plot-diagram/plot-diagram.component';
 import { LineChartComponent } from './cc/plot/plotDiagrams/line-chart/line-chart.component';
 
+import { AppMaterialModule } from './app-material/app-material.module';
+import 'hammerjs';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +28,9 @@ import { LineChartComponent } from './cc/plot/plotDiagrams/line-chart/line-chart
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    AppMaterialModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
