@@ -1,8 +1,8 @@
 <mat-toolbar color="primary">
     <mat-toolbar-row>
-        <button mat-raised-button>
-            <mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>
-            Home
+        <button mat-raised-button (click)="navTo(menuItem.menuLink)" *ngFor="let menuItem of dataserv.menuItems">
+            <mat-icon aria-hidden="false">{{menuItem.menuIcon}}</mat-icon>
+            <span>{{menuItem.menuTitle}}</span>
         </button>
     </mat-toolbar-row>  
 </mat-toolbar>    

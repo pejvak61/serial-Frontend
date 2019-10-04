@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { DataServiceService } from 'src/app/services/data/data-service.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(public dataserv: DataServiceService,
+              public routes: Router
+              ) { }
   ngOnInit() {
   }
 
+  public navTo(path: string) {
+    this.routes.navigateByUrl(path);
+  }
 }

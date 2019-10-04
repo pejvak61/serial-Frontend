@@ -1,2 +1,17 @@
+@import './customThemes.scss';
 /* You can add global styles to this file, and also import other style files */
 @import '~material-design-icons/iconfont/material-icons.css';
+@import url('https://fonts.googleapis.com/css?family=Raleway');
+
+body {
+    // background-image: url("assets/images/bg_measuring_tape_another_method_Grey_beige.jpg");
+    // background-position: center top;
+    // background-size: auto;
+    margin: 0;
+    padding: 0;
+    // font-family: 'Raleway', sans-serif;
+  }
+  
+  body, html {
+    height: 100%;
+  }
