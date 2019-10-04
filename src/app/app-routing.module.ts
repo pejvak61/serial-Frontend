@@ -8,7 +8,7 @@ import { PageNotFoundComponent } from './cc/page-not-found/page-not-found.compon
 const routes: Routes = [
   {path: 'home', component: HomeComponent},
   {path: 'about', component: AboutComponent},
-  {path: '', redirectTo: 'home'},
+  {path: '', component: HomeComponent},
   {path: '**', component: PageNotFoundComponent}
 ];
 
