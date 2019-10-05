@@ -12,6 +12,7 @@ import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
+  { path: '', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'application',
     component: ApplicationComponent,
@@ -23,7 +24,6 @@ const routes: Routes = [
       { path: '**', component: PageNotFoundComponent}
     ]
   },
-  { path: '', component: HomeComponent},
   { path: '**', component: PageNotFoundComponent}
 ];
 
