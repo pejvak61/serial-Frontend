@@ -4,20 +4,25 @@ import { HomeComponent } from './cc/home/home.component';
 import { AboutComponent } from './cc/about/about.component';
 import { PageNotFoundComponent } from './cc/page-not-found/page-not-found.component';
 import { SerialreadComponent } from './cc/serialread/serialread.component';
+import { ApplicationComponent } from './cc/application/application.component';
+import { LoginComponent } from './cc/login/login.component';
+import { AppIntroComponent } from './cc/app-intro/app-intro.component';
 
 
 const routes: Routes = [
-  { path: 'home',
-    component: HomeComponent,
+  { path: 'home', component: HomeComponent},
+  { path: 'login', component: LoginComponent},
+  { path: 'application',
+    component: ApplicationComponent,
     children: [
-      {path: 'serialRead', component: SerialreadComponent},
-      {path: 'about', component: AboutComponent},
-      // {path: '', component: HomeComponent},
-      {path: '**', component: PageNotFoundComponent}
+      { path: 'application-introduction', component: AppIntroComponent},
+      { path: 'serialRead', component: SerialreadComponent},
+      { path: 'about', component: AboutComponent},
+      { path: '**', component: PageNotFoundComponent}
     ]
   },
-  {path: '', component: HomeComponent},
-  {path: '**', component: PageNotFoundComponent}
+  { path: '', component: HomeComponent},
+  { path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

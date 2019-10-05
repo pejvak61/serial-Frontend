@@ -1,0 +1,9 @@
+<mat-toolbar color="primary">
+    <mat-toolbar-row>
+        <button mat-raised-button (click)="navTo(menuItem.menuLink)" *ngFor="let menuItem of dataserv.menuItems">
+            <mat-icon aria-hidden="false">{{menuItem.menuIcon}}</mat-icon>
+            <span>{{menuItem.menuTitle}}</span>
+        </button>
+    </mat-toolbar-row>  
+</mat-toolbar>
+<router-outlet></router-outlet>

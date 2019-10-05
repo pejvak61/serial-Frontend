@@ -14,6 +14,10 @@ import { LineChartComponent } from './cc/plot/plotDiagrams/line-chart/line-chart
 import { AppMaterialModule } from './app-material/app-material.module';
 import 'hammerjs';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { SettingsComponent } from './cc/settings/settings.component';
+import { ApplicationComponent } from './cc/application/application.component';
+import { LoginComponent } from './cc/login/login.component';
+import { AppIntroComponent } from './cc/app-intro/app-intro.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +28,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     SerialreadComponent,
     Plotd3jsComponent,
     PlotDiagramComponent,
-    LineChartComponent
+    LineChartComponent,
+    SettingsComponent,
+    ApplicationComponent,
+    LoginComponent,
+    AppIntroComponent
   ],
   imports: [
     BrowserModule,

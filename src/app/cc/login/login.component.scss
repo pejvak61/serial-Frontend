@@ -1,0 +1,96 @@
+.login {
+    display: grid;
+    grid-template-columns: 1fr 400px 1fr;
+    grid-template-rows: 2.5rem 500px;
+    grid-gap: 10px;
+    grid-template-areas: '. loginTitle .' '. LoginFields .';
+    padding-bottom: 2rem;;    /* Footer height */
+  }
+  
+  .login_title {
+    grid-area: 1 / 2 / 2 / 3;
+    text-align: center;
+    direction: ltr;
+    font-variant: small-caps;
+    font-family: Cinzel Decorative;
+    font-size: 2em;
+    text-transform: none;
+  
+    color: #ffffff;
+  }
+  
+  .login_elements {
+    grid-area: 2 / 2 / 3 / 3;
+  }
+  
+  
+  .login-form {
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .mat-card-action-class{
+    width: 100%;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .login-card {
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    padding: 55px 55px 37px 55px;
+  }
+  .input-uid{
+    width: 100%;
+  }
+  .input-pwd{
+    width: 100%;
+  }
+  
+  .input-uid-input{
+    font-size: 2em;
+  }
+  .input-pwd-input{
+    font-size: 2em;
+  }
+  
+  .material-icons-md-24 {
+    font-size: 24px !important;
+    height: 24px !important;
+    width: 24px !important;
+  }
+  
+  .material-icons-md-30 {
+    font-size: 30px !important;
+    height: 30px !important;
+    width: 30px !important;
+  }
+  
+  .material-icons-md-36 {
+    font-size: 36px !important;
+    height: 36px !important;
+    width: 36px !important;
+  }
+  
+  .material-icons-md-48 {
+  font-size: 48px !important;
+  height: 48px !important;
+  width: 48px !important;
+  }
+  
+  .login_status{
+    text-align:center;
+    // font-variant: small-caps;
+    // font-family: Cinzel Decorative;
+    font-size: 1em;
+  }
+  
