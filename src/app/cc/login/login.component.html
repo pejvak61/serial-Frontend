@@ -1,0 +1,40 @@
+<div class="login">
+    <div class="login_title">Login</div>
+    <div class="login_elements">
+      <mat-card class="login-card" >
+      <form class="login-form" (submit)="login()">
+        <mat-card-header>
+          <div mat-card-avatar ><mat-icon color='primary' class='material-icons-md-48'>fingerprint</mat-icon></div>
+          <mat-card-title>Login</mat-card-title>
+          <mat-card-subtitle>Please enter your credential information</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+          <mat-form-field class='input-uid'>
+            <input matInput  name="uid" placeholder="Enter username" [(ngModel)]="credentials.uid" class="input-uid-input" autocomplete="off">
+            <mat-icon matSuffix class="material-icons-md-24">account_box</mat-icon>
+          </mat-form-field>
+          </p>
+          <p>
+          <mat-form-field class='input-pwd'>
+              <input matInput [type]="hide ? 'password' : 'text'" class="input-pwd-input" name="password" placeholder="Password" [(ngModel)]="credentials.password" autocomplete="off">
+              <mat-icon matSuffix (mousedown)="hide = false" (mouseup)="hide = true" class="material-icons-md-24">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+          </mat-form-field>
+          </p>
+        </mat-card-content>
+        <mat-card-actions >
+          <button mat-raised-button color="primary" class="mat-card-action-class" type="submit">
+            Sign in  <mat-icon>people</mat-icon>
+          </button>
+          <p class="mat-card-action-class">
+            <mat-checkbox (change)="rememberMe = !rememberMe">Remember me</mat-checkbox>
+          </p>
+        </mat-card-actions>
+        <mat-card-footer>
+          <div class="login_status">{{status}}</div>
+        </mat-card-footer>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+  
