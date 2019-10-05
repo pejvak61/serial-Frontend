@@ -7,6 +7,7 @@ import { SerialreadComponent } from './cc/serialread/serialread.component';
 import { ApplicationComponent } from './cc/application/application.component';
 import { LoginComponent } from './cc/login/login.component';
 import { AppIntroComponent } from './cc/app-intro/app-intro.component';
+import { AuthGuardGuard } from './services/guards/auth-guard.guard';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'application',
     component: ApplicationComponent,
+    canActivate: [AuthGuardGuard],
     children: [
       { path: 'application-introduction', component: AppIntroComponent},
       { path: 'serialRead', component: SerialreadComponent},

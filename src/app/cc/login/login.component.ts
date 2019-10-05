@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { SharedENum } from 'src/app/services/enum/sharedenum.enum';
 import { Title } from '@angular/platform-browser';
+import { TokenPayload, AuthenticationService } from 'src/app/services/interfaces/interfaces';
 
 @Component({
   selector: 'app-login',
