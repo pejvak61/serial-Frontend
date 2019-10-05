@@ -18,6 +18,11 @@ import { SettingsComponent } from './cc/settings/settings.component';
 import { ApplicationComponent } from './cc/application/application.component';
 import { LoginComponent } from './cc/login/login.component';
 import { AppIntroComponent } from './cc/app-intro/app-intro.component';
+import { FormsModule } from '@angular/forms';
+import { AuthGuardGuard } from './services/guards/auth-guard.guard';
+import { DataServiceService } from './services/data/data-service.service';
+import { AuthenticationService } from './services/interfaces/interfaces';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,8 +44,14 @@ import { AppIntroComponent } from './cc/app-intro/app-intro.component';
     AppRoutingModule,
     AppMaterialModule,
     BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthGuardGuard,
+    DataServiceService,
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
