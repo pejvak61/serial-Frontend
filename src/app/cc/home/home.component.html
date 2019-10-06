@@ -1,3 +1,9 @@
 <div class="main-container">
-    <a [routerLink]="['/login']">Login</a> 
+    <!-- <a [routerLink]="['/login']"> -->
+    <a (mousedown)="countDown()" (mouseup)="stopCountingDown()">
+        Hold down mouse left key for {{counter}} seconds and navigate to login page
+    </a> 
 </div>
+<!-- <button mat-raised-button (mousedown)="countDown()" (mouseup)="stopCountingDown()">
+    hold down button {{counter}} seconds
+</button> -->
