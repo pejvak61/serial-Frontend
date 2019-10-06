@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
     public genInfo: DataServiceService,
     private titleService: Title) {
       genInfo.setPageTitle('Login');
-      this.titleService.setTitle( genInfo.getPageTitle() );
+      this.titleService.setTitle(genInfo.getPageTitle());
       this.status = SharedENum.Guest;
       this.hide = true;
   }

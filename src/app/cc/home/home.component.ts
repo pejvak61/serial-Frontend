@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { Router } from '@angular/router';
+import { Title } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-home',
@@ -12,8 +13,12 @@ export class HomeComponent implements OnInit {
   interval;
 
   constructor(public dataserv: DataServiceService,
-              public routes: Router
+              public routes: Router,
+              private titleService: Title,
+              public genInfo: DataServiceService,
               ) {
+                genInfo.setPageTitle('Home');
+                this.titleService.setTitle(genInfo.getPageTitle());
                 this.counter = 5;
               }
   ngOnInit() {
