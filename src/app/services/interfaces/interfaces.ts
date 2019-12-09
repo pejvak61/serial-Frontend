@@ -37,13 +37,13 @@ export interface TokenPayload {
     private serverUri: string;
     constructor(private http: HttpClient, private router: Router, private genInfo: DataServiceService) {}
     private saveToken(token: string): void {
-      localStorage.setItem('thisfits-token', token);
+      localStorage.setItem('serial-token', token);
       this.token = token;
     }
 
     private getToken(): string {
       if (!this.token) {
-        this.token = localStorage.getItem('thisfits-token');
+        this.token = localStorage.getItem('serial-token');
       }
       return this.token;
     }
@@ -75,14 +75,18 @@ export interface TokenPayload {
 
       if (method === 'post') {
         base = this.http.post(`${this.serverUri}/api/${type}`, user);
+        // console.log(base);
       } else {
-        base = this.http.get(`${this.serverUri}/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+        // base = this.http.get(`${this.serverUri}/api/${type}`, { headers: { Authorization: `Bearer ${this.getToken()}` }});
+        base = this.http.get(`${this.serverUri}/api/${type}`, { headers: { Authorization: `Token ${this.getToken()}` }});
+        // console.log(base);
       }
       const request = base.pipe(
         map((data: TokenResponse) => {
           if (data.token) {
             this.saveToken(data.token);
           }
+          console.log(data);
           return data;
         })
       );
@@ -90,11 +94,12 @@ export interface TokenPayload {
     }
 
     public register(user: TokenPayload): Observable<any> {
-        console.log('register done');
+        // console.log('register done');
         return this.request('post', 'register', user);
     }
 
     public login(user: TokenPayload): Observable<any> {
+      console.log('logging in process in authentication service');
       return this.request('post', 'login', user);
     }
 
@@ -104,7 +109,7 @@ export interface TokenPayload {
 
     public logout(): void {
       this.token = '';
-      window.localStorage.removeItem('thisfits-token');
+      window.localStorage.removeItem('serial-token');
       this.router.navigateByUrl('/');
     }
   }

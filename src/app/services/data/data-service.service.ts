@@ -19,8 +19,10 @@ export class DataServiceService {
     this.AppTitle = 'Serial Read';
     this.PageTitle = 'Home page';
     this.Description = 'This fits application';
-    // this.serverUri = 'http://localhost:3000'; // localhost
-    this.serverUri = 'http://192.168.1.171:3000'; // Internal network
+    // this.serverUri = 'http://localhost:2281'; // localhost
+    // this.serverUri = 'http://127.0.0.1:2281'; // localhost
+    this.serverUri = 'http://192.168.210.20:2281'; // Remote
+    // this.serverUri = 'http://192.168.1.171:3000'; // Internal network
     // this.serverUri = 'http://192.168.210.236:3000'; // Internal network
   }
 
