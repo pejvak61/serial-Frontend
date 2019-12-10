@@ -99,7 +99,7 @@ export interface TokenPayload {
     }
 
     public login(user: TokenPayload): Observable<any> {
-      console.log('logging in process in authentication service');
+      // console.log('logging in process in authentication service');
       return this.request('post', 'login', user);
     }
 

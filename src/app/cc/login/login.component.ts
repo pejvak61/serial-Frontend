@@ -32,9 +32,9 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    console.log('logging in ...! please wait.')
+    // console.log('logging in ...! please wait.')
     this.auth.login(this.credentials).subscribe(() => {
-      console.log('Login done');
+      // console.log('Login done');
       this.status = SharedENum.Logged_In;
       this.router.navigateByUrl('/measurement');
     }, (err) => {
