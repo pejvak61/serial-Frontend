@@ -106,6 +106,7 @@ export interface TokenPayload {
       }
       const request = base.pipe(
         map((data: TokenResponse) => {
+          console.log({'data' : data});
           if (data.token) {
             this.saveToken(data.token, data.user);
           }
@@ -129,7 +130,10 @@ export interface TokenPayload {
 
     public logout(): void {
       this.token = '';
+      this.user = '';
       window.localStorage.removeItem('serial-token');
-      this.router.navigateByUrl('/');
+      window.localStorage.removeItem('serial-user');
+      console.log('local storage emptied');
+      this.router.navigateByUrl('/login');
     }
   }

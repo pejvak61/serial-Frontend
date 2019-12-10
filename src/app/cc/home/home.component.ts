@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DataServiceService } from 'src/app/services/data/data-service.service';
 import { Router } from '@angular/router';
 import { Title } from '@angular/platform-browser';
+import { AuthenticationService } from 'src/app/services/interfaces/interfaces';
 
 @Component({
   selector: 'app-home',
@@ -11,15 +12,22 @@ import { Title } from '@angular/platform-browser';
 export class HomeComponent implements OnInit {
   counter: number;
   interval;
+  user: string;
 
   constructor(public dataserv: DataServiceService,
               public routes: Router,
               private titleService: Title,
               public genInfo: DataServiceService,
+              public auth: AuthenticationService,
               ) {
                 genInfo.setPageTitle('Home');
                 this.titleService.setTitle(genInfo.getPageTitle());
                 this.counter = 5;
+                this.user = auth.getUser();
+                if (this.user){
+                  this.routes.navigateByUrl('/about');
+                }
+
               }
   ngOnInit() {
   }

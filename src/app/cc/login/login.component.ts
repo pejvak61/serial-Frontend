@@ -29,6 +29,10 @@ export class LoginComponent implements OnInit {
       this.titleService.setTitle(genInfo.getPageTitle());
       this.status = SharedENum.Guest;
       this.hide = true;
+
+      if (auth.getUser()){
+        this.router.navigateByUrl('/about');
+      }
   }
 
   login() {

@@ -8,10 +8,14 @@ import { AuthenticationService } from 'src/app/services/interfaces/interfaces';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(auth: AuthenticationService) {
-    // console.log(auth.getUser());
+  public logged_user: string;
+  constructor(private auth: AuthenticationService) {
+    this.logged_user = auth.getUser();
   }
 
+  public logout(){
+    this.auth.logout()
+  }
   ngOnInit() {
   }
 
