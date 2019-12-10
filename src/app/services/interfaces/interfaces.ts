@@ -23,6 +23,7 @@ export interface UserDetails {
 
 export interface TokenResponse {
     token: string;
+    user: string;
   }
 
 export interface TokenPayload {
@@ -34,11 +35,16 @@ export interface TokenPayload {
 @Injectable()
   export class AuthenticationService {
     private token: string;
+    private user: string;
     private serverUri: string;
     constructor(private http: HttpClient, private router: Router, private genInfo: DataServiceService) {}
-    private saveToken(token: string): void {
+    
+    private saveToken(token: string, user: string): void {
       localStorage.setItem('serial-token', token);
+      localStorage.setItem('serial-user', user);
+      // console.log(user,token)
       this.token = token;
+      this.user = user;
     }
 
     private getToken(): string {
@@ -48,22 +54,39 @@ export interface TokenPayload {
       return this.token;
     }
 
-    public getUserDetails(): UserDetails {
-      const token = this.getToken();
-      let payload;
-      if (token) {
-        payload = token.split('.')[1];
-        payload = window.atob(payload);
-        return JSON.parse(payload);
-      } else {
-        return null;
+    // public getUserDetails(): UserDetails {
+    // public getUserDetails(): any {
+    //   const token = this.getToken();
+    //   let payload;
+    //   if (token) {
+    //     payload = token.split('.')[1];
+    //     payload = window.atob(payload);
+    //     return JSON.parse(payload);
+    //   } else {
+    //     return null;
+    //   }
+    // }
+
+    public getUser(): string {
+      if (!this.user) {
+        this.user = localStorage.getItem('serial-user');
       }
+      return this.user;
     }
 
+    // public isLoggedIn(): boolean {
+    //   const user = this.getUserDetails();
+    //   if (user) {
+    //     return user.exp > Date.now() / 1000;
+    //   } else {
+    //     return false;
+    //   }
+    // }
+
     public isLoggedIn(): boolean {
-      const user = this.getUserDetails();
+      const user = this.getUser();
       if (user) {
-        return user.exp > Date.now() / 1000;
+        return true;
       } else {
         return false;
       }
@@ -84,9 +107,8 @@ export interface TokenPayload {
       const request = base.pipe(
         map((data: TokenResponse) => {
           if (data.token) {
-            this.saveToken(data.token);
+            this.saveToken(data.token, data.user);
           }
-          console.log(data);
           return data;
         })
       );
@@ -94,12 +116,10 @@ export interface TokenPayload {
     }
 
     public register(user: TokenPayload): Observable<any> {
-        // console.log('register done');
         return this.request('post', 'register', user);
     }
 
     public login(user: TokenPayload): Observable<any> {
-      // console.log('logging in process in authentication service');
       return this.request('post', 'login', user);
     }
 

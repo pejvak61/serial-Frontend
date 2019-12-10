@@ -32,13 +32,12 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    // console.log('logging in ...! please wait.')
     this.auth.login(this.credentials).subscribe(() => {
-      // console.log('Login done');
       this.status = SharedENum.Logged_In;
-      this.router.navigateByUrl('/measurement');
+      this.router.navigateByUrl('/about');
     }, (err) => {
-      this.status = err.error.message;
+      this.status = err.error.error;
+      // console.log(err.error)
     });
   }
 
